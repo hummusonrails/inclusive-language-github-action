@@ -3,6 +3,7 @@ const { Toolkit } = require('actions-toolkit')
 
 let user = '';
 let title = '';
+let body = '';
 // Run your GitHub Action!
 Toolkit.run(async tools => {
   console.log(tools.context)
@@ -17,14 +18,14 @@ Toolkit.run(async tools => {
     const action = tools.context.payload.issue.action
     title = tools.context.payload.issue.title
     user = tools.context.payload.issue.user
-    const body = tools.context.payload.issue.body
+    body = tools.context.payload.issue.body
     const issue_number = tools.context.payload.issue.id
   } else if (expected_events.includes(tools.context.payload.action) && tools.context.payload.pull_request == true) {
   // Pull Request details
     const action = tools.context.payload.pull_request.action
     title = tools.context.payload.pull_request.title
     user = tools.context.payload.pull_request.user
-    const body = tools.context.payload.pull_request.body
+    body = tools.context.payload.pull_request.body
   }
   console.log("TITLE: ", title);
   // Combine title and body and split into array of substrings
