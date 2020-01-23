@@ -11,7 +11,7 @@ Toolkit.run(async tools => {
   console.log(tools.context);
   const owner = tools.context.payload.repository.owner.login;
   const repo = tools.context.payload.repository.name;
-  const actor = tools.context.payload.actor;
+  const actor = tools.context.actor;
 
   const expected_events = ['opened', 'edited', 'reopened']
 
