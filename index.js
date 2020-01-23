@@ -47,18 +47,8 @@ Toolkit.run(async tools => {
 
   // Check if text includes anything from language list
   if (errorFound) {
-    await tools.github.issues.createComment({
-      owner: owner,
-      repo: repo,
-      issue_number: issue_number,
-      body: inclusionMsg
-    });
-  } else {
-    console.log("No language violations found!");
-  }
-});
 
-const inclusionMsg = `
+    const inclusionMsg = `
   Hi there, ${user}! 👋
   \n\n
   We are happy to see you being active in our GitHub organization and want to encourage that activity!\n
@@ -71,3 +61,15 @@ const inclusionMsg = `
   \n\n
   Thank you for helping us create a space where all want to contribute! 💙
 `;
+
+
+    await tools.github.issues.createComment({
+      owner: owner,
+      repo: repo,
+      issue_number: issue_number,
+      body: inclusionMsg
+    });
+  } else {
+    console.log("No language violations found!");
+  }
+});
