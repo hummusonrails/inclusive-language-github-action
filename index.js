@@ -15,13 +15,15 @@ Toolkit.run(async tools => {
 
   if (expected_events.includes(tools.context.payload.action) && tools.context.payload.issue) {
     // Issue details
+    console.log("ISSUE!")
     const action = tools.context.payload.issue.action
     title = tools.context.payload.issue.title
     user = tools.context.payload.issue.user
     body = tools.context.payload.issue.body
-    const issue_number = tools.context.payload.issue.id
+    const issue_number = tools.context.payload.issue.number
   } else if (expected_events.includes(tools.context.payload.action) && tools.context.payload.pull_request) {
   // Pull Request details
+    console.log("PULL REQUEST!")
     const action = tools.context.payload.pull_request.action
     title = tools.context.payload.pull_request.title
     user = tools.context.payload.pull_request.user
