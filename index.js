@@ -1,7 +1,8 @@
 const { languageList } = require('./data/language');
 const { Toolkit } = require('actions-toolkit')
 
-const user = '';
+let user = '';
+let title = '';
 // Run your GitHub Action!
 Toolkit.run(async tools => {
   events: ['issues', 'pull_request']
@@ -11,14 +12,14 @@ Toolkit.run(async tools => {
   if (tools.context.event == 'issue') {
     // Issue details
     const action = tools.context.payload.issue.action
-    const title = tools.context.payload.issue.title
+    title = tools.context.payload.issue.title
     user = tools.context.payload.issue.user
     const body = tools.context.payload.issue.body
     const issue_number = tools.context.payload.issue.id
   } else if (tools.context.event == 'pull_request') {
   // Pull Request details
     const action = tools.context.payload.pull_request.action
-    const title = tools.context.payload.pull_request.title
+    title = tools.context.payload.pull_request.title
     user = tools.context.payload.pull_request.user
     const body = tools.context.payload.pull_request.body
   }
