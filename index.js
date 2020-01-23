@@ -4,6 +4,7 @@ const { Toolkit } = require('actions-toolkit')
 let user = '';
 let title = '';
 let body = '';
+let issue_number
 // Run your GitHub Action!
 Toolkit.run(async tools => {
   const owner = tools.context.payload.repository.owner.login;
@@ -18,7 +19,7 @@ Toolkit.run(async tools => {
     title = tools.context.payload.issue.title
     user = tools.context.payload.issue.user
     body = tools.context.payload.issue.body
-    const issue_number = tools.context.payload.issue.number
+    issue_number = tools.context.payload.issue.number
   } else if (expected_events.includes(tools.context.payload.action) && tools.context.payload.pull_request) {
   // Pull Request details
     console.log("PULL REQUEST!")
