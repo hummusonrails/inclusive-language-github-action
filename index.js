@@ -4,9 +4,11 @@ const { Toolkit } = require('actions-toolkit')
 let user = '';
 let title = '';
 let body = '';
-let issue_number
+let issue_number = '';
+
 // Run your GitHub Action!
 Toolkit.run(async tools => {
+  console.log(tools.context);
   const owner = tools.context.payload.repository.owner.login;
   const repo = tools.context.payload.repository.name;
 
@@ -30,6 +32,7 @@ Toolkit.run(async tools => {
   }
   console.log("TITLE: ", title);
   console.log("BODY:", body);
+  console.log("ISSUE:", issue_number);
 
   // Combine title and body and split into array of substrings
   let combined_string = `${title} ${body}`.toLowerCase();
