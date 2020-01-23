@@ -6,8 +6,6 @@ let title = '';
 let body = '';
 // Run your GitHub Action!
 Toolkit.run(async tools => {
-  console.log(tools.context)
-  events: ['issues', 'pull_request']
   const owner = tools.context.payload.repository.owner.login;
   const repo = tools.context.payload.repository.name;
 
@@ -30,16 +28,19 @@ Toolkit.run(async tools => {
     body = tools.context.payload.pull_request.body
   }
   console.log("TITLE: ", title);
+  console.log("BODY:", body);
+
   // Combine title and body and split into array of substrings
   let combined_string = `${title} ${body}`.toLowerCase();
   let combined_array = combined_string.split(" ");
+  console.log("ALL THE TEXT!", combined_string);
   console.log("ALL THE TEXT!", combined_array);
 
   let errorFound = false;
   for (let word of combined_array) {
     errorFound = errorFound || (languageList.indexOf(word) != -1);
   }
-  
+
   // Check if text includes anything from language list
   if (errorFound) {
     await tools.github.issues.createComment({
