@@ -31,8 +31,9 @@ Toolkit.run(async tools => {
   }
   console.log("TITLE: ", title);
   // Combine title and body and split into array of substrings
-  let combined_string = title.concat(body);
+  let combined_string = title.concat(body).toLowerCase();
   let combined_array = combined_string.split(" ");
+  console.log("ALL THE TEXT!", combined_array);
 
   // Check if text includes anything from language list
   if (languageList.indexOf(combined_array) != -1) {
