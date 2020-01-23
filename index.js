@@ -13,14 +13,14 @@ Toolkit.run(async tools => {
 
   const expected_events = ['opened', 'edited', 'reopened']
 
-  if (expected_events.includes(tools.context.payload.action) && tools.context.payload.issue == true) {
+  if (expected_events.includes(tools.context.payload.action) && tools.context.payload.issue) {
     // Issue details
     const action = tools.context.payload.issue.action
     title = tools.context.payload.issue.title
     user = tools.context.payload.issue.user
     body = tools.context.payload.issue.body
     const issue_number = tools.context.payload.issue.id
-  } else if (expected_events.includes(tools.context.payload.action) && tools.context.payload.pull_request == true) {
+  } else if (expected_events.includes(tools.context.payload.action) && tools.context.payload.pull_request) {
   // Pull Request details
     const action = tools.context.payload.pull_request.action
     title = tools.context.payload.pull_request.title
