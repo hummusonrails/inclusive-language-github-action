@@ -34,6 +34,7 @@ Toolkit.run(async tools => {
   console.log("TITLE: ", title);
   console.log("BODY:", body);
   console.log("ISSUE:", issue_number);
+  console.log("ACTOR:", actor);
 
   // Combine title and body and split into array of substrings
   let combined_string = `${title} ${body}`.toLowerCase();
