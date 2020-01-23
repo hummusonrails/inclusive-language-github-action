@@ -1,4 +1,4 @@
-const languageList = require('./data/languageList');
+const { languageList } = require('./data/languageList');
 const { Toolkit } = require('actions-toolkit')
 
 // Run your GitHub Action!

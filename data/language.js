@@ -1,4 +1,4 @@
-export const languageList = [
+module.exports.languageList = [
   'guys',
   'retarded',
   'dumb',
