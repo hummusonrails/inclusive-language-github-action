@@ -22,7 +22,7 @@ Toolkit.run(async tools => {
     user = tools.context.payload.pull_request.user
     const body = tools.context.payload.pull_request.body
   }
-
+  console.log("TITLE: ", title);
   // Combine title and body and split into array of substrings
   let combined_string = title.concat(body);
   let combined_array = combined_string.split(" ");
