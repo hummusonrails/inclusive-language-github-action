@@ -9,14 +9,16 @@ Toolkit.run(async tools => {
   const owner = tools.context.payload.repository.owner.login;
   const repo = tools.context.payload.repository.name;
 
-  if (tools.context.event == 'issue') {
+  const expected_events = ['opened', 'edited', 'reopened']
+
+  if (expected_events.includes(tools.context.event) && tools.context.payload.issue == true) {
     // Issue details
     const action = tools.context.payload.issue.action
     title = tools.context.payload.issue.title
     user = tools.context.payload.issue.user
     const body = tools.context.payload.issue.body
     const issue_number = tools.context.payload.issue.id
-  } else if (tools.context.event == 'pull_request') {
+  } else if (expected_events.includes(tools.context.event) && tools.context.payload.pull_request == true) {
   // Pull Request details
     const action = tools.context.payload.pull_request.action
     title = tools.context.payload.pull_request.title
