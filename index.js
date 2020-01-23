@@ -10,7 +10,8 @@ Toolkit.run(async tools => {
   // const owner = tools.context.payload.repository.owner.login;
   // const repo = tools.context.payload.repository.name;
 
-  // const expected_events = ['opened', 'edited', 'reopened']
+  const expected_events = ['opened', 'edited', 'reopened']
+  console.log("EXPECTED: ", expected_events.includes(tools.context.payload.action))
 
   // if (expected_events.includes(tools.context.event) && tools.context.payload.issue == true) {
   //   // Issue details
