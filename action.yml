@@ -1,0 +1,8 @@
+name: Inclusive Language Checker Action
+description: Check for inclusive language and suggest modifying non-inclusive language in response.
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: alert-circle
+  color: yellow
