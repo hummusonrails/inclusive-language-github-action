@@ -11,6 +11,7 @@ Toolkit.run(async tools => {
   console.log(tools.context);
   const owner = tools.context.payload.repository.owner.login;
   const repo = tools.context.payload.repository.name;
+  const actor = tools.context.payload.actor;
 
   const expected_events = ['opened', 'edited', 'reopened']
 
@@ -49,7 +50,7 @@ Toolkit.run(async tools => {
   if (errorFound) {
 
     const inclusionMsg = `
-  Hi there, ${user}! 👋
+  Hi there, ${actor}! 👋
   \n\n
   We are happy to see you being active in our GitHub organization and want to encourage that activity!\n
   We are also mindful of cultivating an inclusive space and encourage you to avoid language that detracts from
